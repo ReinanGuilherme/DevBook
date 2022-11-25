@@ -40,5 +40,5 @@ func Carregar() {
 	)
 
 	//string de conexão
-	StringConexaoBanco = fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?allowNativePasswords=true", user, password, host, port, database)
+	StringConexaoBanco = fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?allowNativePasswords=true&charset=utf8&parseTime=true", user, password, host, port, database)
 }
