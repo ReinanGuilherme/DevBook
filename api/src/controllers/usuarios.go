@@ -25,6 +25,12 @@ func CriarUsuario(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	//validando struct usuario
+	if erro = usuario.Preparar(); erro != nil {
+		msgresponse.Erro(w, http.StatusBadRequest, erro)
+		return
+	}
+
 	//abrindo conexão com o banco de dados
 	db, erro := database.Conectar()
 	if erro != nil {
