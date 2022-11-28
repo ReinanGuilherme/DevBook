@@ -14,6 +14,9 @@ var (
 	StringConexaoBanco = ""
 	//Porta onde a API vai estar rodando
 	PortaServidor = 0
+
+	//Chave para assinar o token
+	SecretKey []byte
 )
 
 // Carregar vai inicializar as variaveis de ambiente
@@ -41,4 +44,7 @@ func Carregar() {
 
 	//string de conexão
 	StringConexaoBanco = fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?allowNativePasswords=true&charset=utf8&parseTime=true", user, password, host, port, database)
+
+	//chave secreta JWT
+	SecretKey = []byte(os.Getenv("secret_key"))
 }
